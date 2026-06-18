@@ -1,9 +1,7 @@
 import { useTranslations } from 'next-intl'
 import Link from 'next/link'
 
-type Locale = 'ru' | 'en'
-
-export function Footer({ locale }: { locale: Locale }) {
+export function Footer() {
   const t = useTranslations('footer')
   const nav = useTranslations('nav')
   return (
