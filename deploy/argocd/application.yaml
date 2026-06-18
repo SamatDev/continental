@@ -1,0 +1,41 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: continental-web
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: web=ghcr.io/SamatDev/continental-web
+    argocd-image-updater.argoproj.io/web.update-strategy: latest
+    argocd-image-updater.argoproj.io/web.pull-secret: pullsecret:argocd/ghcr-pull-secret
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/SamatDev/continental
+    targetRevision: main
+    path: deploy/helm/continental
+    helm:
+      valueFiles:
+        - values.yaml
+      # override image tag via CI-updated file if not using argocd-image-updater:
+      # parameters:
+      #   - name: image.tag
+      #     value: "abc123"
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: continental
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: false
+    syncOptions:
+      - CreateNamespace=true
+      - PrunePropagationPolicy=foreground
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 3m

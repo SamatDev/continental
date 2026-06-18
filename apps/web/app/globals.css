@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter:     'Inter', system-ui, sans-serif;
+    --font-jetbrains: 'JetBrains Mono', monospace;
+    --cyan:    0, 212, 255;
+    --purple:  160, 80, 255;
+    --pink:    255, 0, 160;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: #050508;
+    color: #e8eaf0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgba(160, 80, 255, 0.25);
+    color: #e8eaf0;
+  }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track  { background: #050508; }
+  ::-webkit-scrollbar-thumb  { background: #1a1d2e; border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(160,80,255,0.4); }
+}
+
+@layer utilities {
+  /* ── градиентный текст ─────────────────────────────────────────── */
+  .text-gradient-blue {
+    background: linear-gradient(135deg, #00d4ff 0%, #a050ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-purple {
+    background: linear-gradient(135deg, #a050ff 0%, #ff00a0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-cyber {
+    background: linear-gradient(135deg, #00d4ff 0%, #a050ff 50%, #ff00a0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #f0c060, #b08830);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── glow ──────────────────────────────────────────────────────── */
+  .glow-blue {
+    box-shadow:
+      0 0 15px rgba(0,212,255,0.25),
+      0 0 50px rgba(0,212,255,0.08);
+  }
+
+  .glow-purple {
+    box-shadow:
+      0 0 15px rgba(160,80,255,0.3),
+      0 0 50px rgba(160,80,255,0.1);
+  }
+
+  .glow-pink {
+    box-shadow:
+      0 0 15px rgba(255,0,160,0.3),
+      0 0 50px rgba(255,0,160,0.1);
+  }
+
+  /* ── карточки ──────────────────────────────────────────────────── */
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+
+  .card-hover:hover {
+    border-color: rgba(160, 80, 255, 0.25);
+    box-shadow:
+      0 0 30px rgba(160,80,255,0.06),
+      inset 0 0 20px rgba(160,80,255,0.03);
+    transform: translateY(-2px);
+  }
+
+  /* ── киберпанк-бордер с градиентом ─────────────────────────────── */
+  .border-cyber {
+    position: relative;
+  }
+
+  .border-cyber::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(0,212,255,0.4), rgba(160,80,255,0.4), rgba(255,0,160,0.3));
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* ── сканирующая линия (декоративная) ──────────────────────────── */
+  .scan-overlay {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scan-overlay::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(160,80,255,0.6), transparent);
+    animation: scanLine 4s linear infinite;
+    pointer-events: none;
+  }
+}

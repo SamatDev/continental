@@ -1,0 +1,142 @@
+{
+  "meta": {
+    "siteName": "Continental",
+    "siteDescription": "Turnkey smart home integration. Wirenboard, Yandex Alice, KNX automation for premium residences in Kazan."
+  },
+  "nav": {
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "Next-generation smart homes",
+    "title": "Automation\nthat just works",
+    "subtitle": "We integrate Wirenboard, KNX, Yandex Alice and all smart systems into one seamless ecosystem. Turnkey.",
+    "cta_primary": "Discuss a project",
+    "cta_secondary": "Our work",
+    "stat1_value": "50+",
+    "stat1_label": "Projects delivered",
+    "stat2_value": "98%",
+    "stat2_label": "Satisfied clients",
+    "stat3_value": "5 years",
+    "stat3_label": "Automation experience"
+  },
+  "services": {
+    "title": "What we do",
+    "subtitle": "Full cycle — from design to long-term support",
+    "items": {
+      "wirenboard": {
+        "title": "Wirenboard & KNX",
+        "desc": "Design and installation of automation panels based on Wirenboard. Logic, scenarios and rules programming."
+      },
+      "voice": {
+        "title": "Voice control",
+        "desc": "Integration with Yandex Alice, Apple HomeKit, Google Home. Control lights, climate and security by voice."
+      },
+      "climate": {
+        "title": "Climate & ventilation",
+        "desc": "Multi-zone climate management, heat recovery units, underfloor heating — all in one interface."
+      },
+      "lighting": {
+        "title": "Smart lighting",
+        "desc": "Dimming, scenes, circadian rhythms. DALI, DMX, Modbus — we support every protocol."
+      },
+      "security": {
+        "title": "Security",
+        "desc": "CCTV, access control, leak and smoke detectors — all integrated into the unified system."
+      },
+      "support": {
+        "title": "Support & monitoring",
+        "desc": "24/7 remote monitoring. Logic and scenario updates without on-site visits."
+      }
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "Real projects, real results",
+    "case1": {
+      "title": "450 m² Cottage — Rublyovskoye Highway",
+      "tag1": "Wirenboard",
+      "tag2": "Yandex Alice",
+      "tag3": "KNX",
+      "desc": "Full automation: 48 lighting zones, multi-zone climate, video intercom, pool and hammam — all controlled by a single Wirenboard 7 controller. Voice control via Alice in every room.",
+      "stat1_v": "48",
+      "stat1_l": "lighting zones",
+      "stat2_v": "12",
+      "stat2_l": "climate zones",
+      "stat3_v": "6 mo",
+      "stat3_l": "delivery time"
+    },
+    "case2": {
+      "title": "280 m² Penthouse — Kazan City",
+      "tag1": "Apple HomeKit",
+      "tag2": "Wirenboard",
+      "tag3": "DALI",
+      "desc": "Designer DALI lighting integrated with HomeKit. Time-of-day scenes, blind and audio control from one app. Full energy consumption monitoring.",
+      "stat1_v": "200+",
+      "stat1_l": "devices",
+      "stat2_v": "30+",
+      "stat2_l": "scenes",
+      "stat3_v": "3 mo",
+      "stat3_l": "delivery time"
+    },
+    "case3": {
+      "title": "180 m² Townhouse — Skolkovo",
+      "tag1": "Wirenboard",
+      "tag2": "Yandex Alice",
+      "tag3": "Security",
+      "desc": "Cost-effective yet powerful automation on Wirenboard 6. Smart lighting, climate, security and full Alice integration. Remote monitoring and ongoing support.",
+      "stat1_v": "32",
+      "stat1_l": "zones",
+      "stat2_v": "100%",
+      "stat2_l": "system uptime",
+      "stat3_v": "2 mo",
+      "stat3_l": "delivery time"
+    }
+  },
+  "about": {
+    "title": "About Continental",
+    "subtitle": "We don't just install equipment — we engineer living ecosystems",
+    "p1": "Continental is a team of engineers and systems integrators focused on complex residential projects. We specialise in Wirenboard and KNX platforms, deeply understand Modbus, MQTT and BACnet protocols and know how to make any equipment work together.",
+    "p2": "Our approach: design and specification first, then installation. We work through every scenario in advance, write logic so the system runs for years without human intervention — and so it can be easily extended later.",
+    "value1_title": "Engineering precision",
+    "value1_desc": "We document every node and every bus address. No guesswork.",
+    "value2_title": "Open protocols",
+    "value2_desc": "Open standards only. No proprietary locks or vendor dependencies.",
+    "value3_title": "Years of support",
+    "value3_desc": "After handover we stay connected. We monitor, update and expand."
+  },
+  "contact": {
+    "title": "Discuss a project",
+    "subtitle": "Tell us about your property — we'll respond within an hour",
+    "name_label": "Name",
+    "name_placeholder": "John Smith",
+    "phone_label": "Phone",
+    "phone_placeholder": "+7 (999) 000-00-00",
+    "object_label": "Property type",
+    "object_placeholder": "Cottage, apartment, office...",
+    "message_label": "Describe the project",
+    "message_placeholder": "Area, goals, preferences...",
+    "submit": "Send request",
+    "submitting": "Sending...",
+    "success_title": "Request received!",
+    "success_desc": "We'll get back to you within an hour.",
+    "error": "Sending failed. Please try again.",
+    "info_title": "How we work",
+    "step1": "Consultation and site visit",
+    "step2": "Technical specification development",
+    "step3": "Installation and programming",
+    "step4": "Training and ongoing support"
+  },
+  "footer": {
+    "tagline": "Smart systems for smart people",
+    "nav_title": "Navigation",
+    "contact_title": "Contacts",
+    "email": "hello@continental.systems",
+    "phone": "+7 (495) 000-00-00",
+    "address": "Kazan",
+    "rights": "© 2025 Continental. All rights reserved.",
+    "privacy": "Privacy Policy"
+  }
+}

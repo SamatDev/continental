@@ -1,0 +1,98 @@
+replicaCount: 2
+
+image:
+  repository: ghcr.io/SamatDev/continental-web
+  pullPolicy: IfNotPresent
+  tag: "latest"
+
+imagePullSecrets: []
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: false
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 3000
+
+ingress:
+  enabled: true
+  className: nginx
+  annotations:
+    # TLS
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+
+    # TLSv1.3 only + strong ciphers
+    nginx.ingress.kubernetes.io/ssl-protocols: "TLSv1.3"
+    nginx.ingress.kubernetes.io/ssl-ciphers: "TLS_AES_128_GCM_SHA256:TLS_AES_256_GCM_SHA384:TLS_CHACHA20_POLY1305_SHA256"
+
+    # HTTP/2 — включён автоматически nginx-ingress при TLS,
+    # явно форсируем через ConfigMap-аннотацию на ingress
+    nginx.ingress.kubernetes.io/use-http2: "true"
+
+    # HSTS: 1 год, includeSubDomains, preload
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      more_set_headers "Strict-Transport-Security: max-age=31536000; includeSubDomains; preload";
+      more_set_headers "X-Content-Type-Options: nosniff";
+      more_set_headers "X-Frame-Options: DENY";
+      more_set_headers "Referrer-Policy: strict-origin-when-cross-origin";
+
+    # Прочее
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+    nginx.ingress.kubernetes.io/proxy-buffer-size: "16k"
+  hosts:
+    - host: continental.systems
+      paths:
+        - path: /
+          pathType: Prefix
+    - host: www.continental.systems
+      paths:
+        - path: /
+          pathType: Prefix
+  tls:
+    - secretName: continental-tls
+      hosts:
+        - continental.systems
+        - www.continental.systems
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
+autoscaling:
+  enabled: true
+  minReplicas: 2
+  maxReplicas: 6
+  targetCPUUtilizationPercentage: 70
+
+env: []
+  # - name: TELEGRAM_BOT_TOKEN
+  #   valueFrom:
+  #     secretKeyRef:
+  #       name: continental-secrets
+  #       key: telegram-bot-token
+  # - name: TELEGRAM_CHAT_ID
+  #   valueFrom:
+  #     secretKeyRef:
+  #       name: continental-secrets
+  #       key: telegram-chat-id
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+podAnnotations:
+  prometheus.io/scrape: "false"
+
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 1
