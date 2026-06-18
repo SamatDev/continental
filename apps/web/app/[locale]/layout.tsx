@@ -92,7 +92,7 @@ export default async function LocaleLayout({
           <NeuralBackground />
           <Header locale={locale as 'ru' | 'en'} />
           <main className="relative z-10">{children}</main>
-          <Footer locale={locale as 'ru' | 'en'} />
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
