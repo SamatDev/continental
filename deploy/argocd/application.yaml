@@ -4,7 +4,7 @@ metadata:
   name: continental-web
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: web=ghcr.io/SamatDev/continental-web
+    argocd-image-updater.argoproj.io/image-list: web=ghcr.io/samatdev/continental-web
     argocd-image-updater.argoproj.io/web.update-strategy: latest
     argocd-image-updater.argoproj.io/web.pull-secret: pullsecret:argocd/ghcr-pull-secret
   finalizers:

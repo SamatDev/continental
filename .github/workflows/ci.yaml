@@ -14,7 +14,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository_owner }}/continental-web
+  IMAGE_NAME: samatdev/continental-web
 
 jobs:
   # ── Lint & type-check ──────────────────────────────────────────────────────
